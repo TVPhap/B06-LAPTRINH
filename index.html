@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tiệm Bánh Ngọt - Trang Chủ</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; background-color: #f7f7f7; }
+        .card-shadow { box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); }
+    </style>
+</head>
+<body>
+    <!-- Thanh điều hướng (Nav Bar) -->
+    <header class="bg-white shadow-md sticky top-0 z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center">
+                    <a href="index.html" class="text-3xl font-bold text-pink-600">Sweet Cake Shop</a>
+                    <!-- Tìm kiếm cơ bản -->
+                    <div class="ml-10 hidden lg:block">
+                        <input type="text" placeholder="Tìm kiếm sản phẩm..." class="p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500 w-80">
+                    </div>
+                </div>
+                <nav class="flex items-center space-x-4">
+                    <a href="#" class="text-gray-600 hover:text-pink-600 font-medium">Bánh Sinh Nhật</a>
+                    <a href="#" class="text-gray-600 hover:text-pink-600 font-medium">Bánh Mì</a>
+                    <a href="#" class="text-gray-600 hover:text-pink-600 font-medium">Bánh Ngọt</a>
+                    <a href="#advanced_search_section" class="text-pink-600 hover:text-pink-700 font-medium ml-4 border-b-2 border-pink-600">Tìm Nâng Cao</a>
+                    <a href="cart.html" class="text-gray-600 hover:text-pink-600 relative">
+                        <!-- Icon Giỏ hàng (dùng placeholder SVG) -->
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+                        <span class="absolute -top-1 -right-1 bg-red-500 text-white text-xs px-1.5 rounded-full">3</span>
+                    </a>
+                    <a href="customer_login.html" class="px-4 py-2 bg-pink-500 text-white rounded-full hover:bg-pink-600 transition duration-300 ml-4">Đăng Nhập</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <!-- Banner/Hero Section -->
+        <section class="mb-12 bg-pink-100 p-8 rounded-xl card-shadow">
+            <h1 class="text-4xl font-bold text-pink-800 mb-2">Bánh Ngọt Mỗi Ngày!</h1>
+            <p class="text-pink-600 text-lg">Khám phá bộ sưu tập bánh kem, bánh mì và bánh ngọt mới nhất.</p>
+        </section>
+
+        <!-- Tìm kiếm nâng cao (Advanced Search Section) -->
+        <section id="advanced_search_section" class="mb-12 p-6 bg-white rounded-xl card-shadow border border-pink-200">
+            <h2 class="text-2xl font-semibold text-gray-700 mb-4 border-b pb-2">Tìm Kiếm Nâng Cao</h2>
+            <form class="grid grid-cols-1 md:grid-cols-4 gap-4 items-end">
+                <div>
+                    <label for="search_name" class="block text-sm font-medium text-gray-700 mb-1">Tên Sản Phẩm</label>
+                    <input type="text" id="search_name" placeholder="Ví dụ: Bánh Mousse Dâu" class="w-full p-2 border border-gray-300 rounded-lg focus:ring-pink-500">
+                </div>
+                <div>
+                    <label for="search_category" class="block text-sm font-medium text-gray-700 mb-1">Phân Loại</label>
+                    <select id="search_category" class="w-full p-2 border border-gray-300 rounded-lg focus:ring-pink-500">
+                        <option>Chọn loại</option>
+                        <option>Bánh Sinh Nhật</option>
+                        <option>Bánh Mì</option>
+                        <option>Bánh Ngọt Nhỏ</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="search_price_min" class="block text-sm font-medium text-gray-700 mb-1">Khoảng Giá (Tối thiểu)</label>
+                    <input type="number" id="search_price_min" placeholder="50,000" class="w-full p-2 border border-gray-300 rounded-lg focus:ring-pink-500">
+                </div>
+                <div>
+                    <label for="search_price_max" class="block text-sm font-medium text-gray-700 mb-1">Khoảng Giá (Tối đa)</label>
+                    <input type="number" id="search_price_max" placeholder="200,000" class="w-full p-2 border border-gray-300 rounded-lg focus:ring-pink-500">
+                </div>
+                <div class="md:col-span-4">
+                    <button type="submit" class="w-full md:w-auto px-6 py-2 bg-pink-600 text-white font-semibold rounded-lg hover:bg-pink-700 transition duration-300">Tìm Kiếm</button>
+                </div>
+            </form>
+        </section>
+
+        <!-- Danh sách Sản phẩm -->
+        <section class="mb-12">
+            <h2 class="text-3xl font-bold text-gray-800 mb-6 border-b-2 border-pink-400 pb-2">Sản Phẩm Nổi Bật</h2>
+            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
+                <!-- Product Card 1 -->
+                <a href="product_detail.html" class="bg-white rounded-xl overflow-hidden card-shadow hover:shadow-lg transition duration-300 group">
+                    <img src="banhkemdau.webp" alt="Bánh Kem Dâu Tây" class="w-full h-36 object-cover transform group-hover:scale-105 transition duration-500">
+                    <div class="p-4">
+                        <h3 class="text-lg font-semibold text-gray-800 truncate mb-1">Bánh Kem Dâu Tây</h3>
+                        <p class="text-pink-600 font-bold text-xl">150.000 VNĐ</p>
+                        <p class="text-sm text-gray-500 mt-2">Bánh Sinh Nhật</p>
+                    </div>
+                </a>
+                <!-- Product Card 2 -->
+                <a href="product_detail.html" class="bg-white rounded-xl overflow-hidden card-shadow hover:shadow-lg transition duration-300 group">
+                    <img src="banhmiphomai.jpg" alt="Bánh Mì Phô Mai" class="w-full h-36 object-cover transform group-hover:scale-105 transition duration-500">
+                    <div class="p-4">
+                        <h3 class="text-lg font-semibold text-gray-800 truncate mb-1">Bánh Mì Phô Mai</h3>
+                        <p class="text-pink-600 font-bold text-xl">25.000 VNĐ</p>
+                        <p class="text-sm text-gray-500 mt-2">Bánh Mì</p>
+                    </div>
+                </a>
+                <!-- Product Card 3 -->
+                <a href="product_detail.html" class="bg-white rounded-xl overflow-hidden card-shadow hover:shadow-lg transition duration-300 group">
+                    <img src="https://placehold.co/400x300/e9d5ff/6b21a8?text=Macaron" alt="Macaron Vị Chanh" class="w-full h-36 object-cover transform group-hover:scale-105 transition duration-500">
+                    <div class="p-4">
+                        <h3 class="text-lg font-semibold text-gray-800 truncate mb-1">Macaron Vị Chanh</h3>
+                        <p class="text-pink-600 font-bold text-xl">18.000 VNĐ</p>
+                        <p class="text-sm text-gray-500 mt-2">Bánh Ngọt Nhỏ</p>
+                    </div>
+                </a>
+                <!-- Product Card 4 -->
+                 <a href="product_detail.html" class="bg-white rounded-xl overflow-hidden card-shadow hover:shadow-lg transition duration-300 group">
+                    <img src="https://placehold.co/400x300/dbeafe/1e40af?text=Banh+Chocolate" alt="Bánh Kem Socola" class="w-full h-36 object-cover transform group-hover:scale-105 transition duration-500">
+                    <div class="p-4">
+                        <h3 class="text-lg font-semibold text-gray-800 truncate mb-1">Bánh Kem Socola</h3>
+                        <p class="text-pink-600 font-bold text-xl">185.000 VNĐ</p>
+                        <p class="text-sm text-gray-500 mt-2">Bánh Sinh Nhật</p>
+                    </div>
+                </a>
+                <!-- Product Card 5 -->
+                 <a href="product_detail.html" class="bg-white rounded-xl overflow-hidden card-shadow hover:shadow-lg transition duration-300 group">
+                    <img src="https://placehold.co/400x300/fee2e2/dc2626?text=Banh+Croissant" alt="Croissant Bơ" class="w-full h-36 object-cover transform group-hover:scale-105 transition duration-500">
+                    <div class="p-4">
+                        <h3 class="text-lg font-semibold text-gray-800 truncate mb-1">Croissant Bơ</h3>
+                        <p class="text-pink-600 font-bold text-xl">30.000 VNĐ</p>
+                        <p class="text-sm text-gray-500 mt-2">Bánh Mì</p>
+                    </div>
+                </a>
+                <!-- Product Card 6 -->
+                 <a href="product_detail.html" class="bg-white rounded-xl overflow-hidden card-shadow hover:shadow-lg transition duration-300 group">
+                    <img src="https://placehold.co/400x300/d1fae5/047857?text=Banh+Tiramisu" alt="Tiramisu Cà Phê" class="w-full h-36 object-cover transform group-hover:scale-105 transition duration-500">
+                    <div class="p-4">
+                        <h3 class="text-lg font-semibold text-gray-800 truncate mb-1">Tiramisu Cà Phê</h3>
+                        <p class="text-pink-600 font-bold text-xl">65.000 VNĐ</p>
+                        <p class="text-sm text-gray-500 mt-2">Bánh Ngọt Nhỏ</p>
+                    </div>
+                </a>
+                <!-- Product Card 7 -->
+                 <a href="product_detail.html" class="bg-white rounded-xl overflow-hidden card-shadow hover:shadow-lg transition duration-300 group">
+                    <img src="https://placehold.co/400x300/ffedd5/b45309?text=Banh+Dua" alt="Bánh Dứa Truyền Thống" class="w-full h-36 object-cover transform group-hover:scale-105 transition duration-500">
+                    <div class="p-4">
+                        <h3 class="text-lg font-semibold text-gray-800 truncate mb-1">Bánh Dứa</h3>
+                        <p class="text-pink-600 font-bold text-xl">40.000 VNĐ</p>
+                        <p class="text-sm text-gray-500 mt-2">Bánh Ngọt Nhỏ</p>
+                    </div>
+                </a>
+                <!-- Product Card 8 -->
+                 <a href="product_detail.html" class="bg-white rounded-xl overflow-hidden card-shadow hover:shadow-lg transition duration-300 group">
+                    <img src="https://placehold.co/400x300/e0f2f1/14b8a6?text=Banh+Flan" alt="Bánh Flan Caramel" class="w-full h-36 object-cover transform group-hover:scale-105 transition duration-500">
+                    <div class="p-4">
+                        <h3 class="text-lg font-semibold text-gray-800 truncate mb-1">Bánh Flan Caramel</h3>
+                        <p class="text-pink-600 font-bold text-xl">15.000 VNĐ</p>
+                        <p class="text-sm text-gray-500 mt-2">Bánh Ngọt Nhỏ</p>
+                    </div>
+                </a>
+            </div>
+            <!-- Phân trang (Pagination) -->
+            <div class="flex justify-center mt-8 space-x-2">
+                <a href="#" class="px-4 py-2 bg-pink-600 text-white rounded-full">1</a>
+                <a href="#" class="px-4 py-2 bg-white text-gray-700 rounded-full border hover:bg-pink-100">2</a>
+                <a href="#" class="px-4 py-2 bg-white text-gray-700 rounded-full border hover:bg-pink-100">3</a>
+                <a href="#" class="px-4 py-2 bg-white text-gray-700 rounded-full border hover:bg-pink-100">Trang sau</a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white mt-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 text-center">
+            <p>&copy; 2024 Sweet Cake Shop. Prototype by Gemini.</p>
+        </div>
+    </footer>
+</body>
+</html>
+
+
